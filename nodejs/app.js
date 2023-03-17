@@ -3,7 +3,7 @@ let app = express();
 
 app.get('/', function (req, res) {
   //let obj = '<h1>Hello, world! </br> Stunning Broccoli Node JS App For Production</br> /ping </br> /current-date </br> <p><a href="/about">About Us</a></p> </h1>';
-  res.send('<h1>Hello, world! </br> Stunning Broccoli Node JS App For Production </h1>  </br> /ping </br> /current-date </br> <p><a href="/about">About Us</a><a href="/ping">Ping</a></p>');
+  res.send('<h1>Hello, world! </br> <center>Stunning Broccoli Node JS App For Production </center> </h1>  </br> /ping </br> /current-date </br> <p><a href="/about">About Us </a><a href="/ping"> | Ping</a><a href="/contact"> | Contact us</a></p>');
 });
 
 app.get('/ping', function (req, res) {
@@ -11,11 +11,11 @@ app.get('/ping', function (req, res) {
 });
 
 app.get('/about', (req, res) => {
-  res.send('<h1>About Us</h1><p>We are a company that specializes in creating Node.js apps.</p><p><a href="/">Home</a></p>')
+  res.send('<h1>About Us</h1><p>We are a company that specializes in creating Node.js apps.</p><p><a href="/">Home</a><a href="/ping"> | Ping</a><a href="/contact"> | Contact us</a></p>')
 });
 
 app.get('/contact', (req, res) => {
-  res.send('<h1>Contact Us</h1><p>You can contact us at contact@example.com.</p>')
+  res.send('<h1>Contact Us</h1><p>You can contact us at contact@example.com.</p> <p><a href="/">Home</a></p>')
 });
 
 app.get('/current-date', function (req, res) {
