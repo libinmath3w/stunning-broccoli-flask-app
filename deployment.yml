@@ -1,51 +1,35 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: mywebapp
-  labels:
-    app: microservices
-spec:
-  ports:
-  - port: 5000
-    protocol: TCP
-    name: flask
-  - port: 8001
-    protocol: TCP
-    name: prometheusstats
-  selector:
-    app: mywebapp
-    env: prod
-  type: NodePort
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment
-  labels:
-    app: mywebapp
-    env: prod
+  name: flask-app-deployment
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      env: prod
+      app: flask-app
   template:
     metadata:
       labels:
-        app: mywebapp
-        env: prod
-    spec: # Pod spec
+        app: flask-app
+    spec:
       containers:
-      - name: mycontainer
-        image: devopsjourney1/mywebapp:prod
-        imagePullPolicy: "Always"
+      - name: flask-app
+        image: libinmathew/stunning-broccoli-flask-app:prod
         resources:
-          requests:
-            memory: "16Mi" # mebibytes
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
           limits:
-            memory: "16Mi"
-            cpu: "100m"
+            memory: "128Mi"
+            cpu: "500m"
         ports:
-          - containerPort: 5000
-          - containerPort: 8001
+        - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+spec:
+  selector:
+    app: flask-app-deployment
+  ports:
+  - port: 6000
+    targetPort: 5000
+  type: LoadBalancer
