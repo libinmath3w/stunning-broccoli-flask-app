@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/ping', function (req, res) {
-  res.send("<h1>pong :)</h1><p><a href="/">Home</a></p>");
+  res.send('<h1>pong :) </h1><p><a href="/">Home</a></p>');
 });
 
 app.get('/about', (req, res) => {
