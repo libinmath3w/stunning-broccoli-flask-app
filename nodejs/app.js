@@ -1,6 +1,10 @@
 let express = require('express');
 let app = express();
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+//swap jade for ejs etc
+
 app.get('/', function (req, res) {
   // let obj = {
   //   endpoints: [
@@ -48,6 +52,11 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
+res.status(err.status || 500);
+res.json({
+  message: err.message,
+  error: err
+});
 
 function fibo(n) { // 1
   if (n < 2)
