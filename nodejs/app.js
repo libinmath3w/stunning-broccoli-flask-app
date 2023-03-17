@@ -1,8 +1,8 @@
 let express = require('express');
 let app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
 //swap jade for ejs etc
 
 app.get('/', function (req, res) {
@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
   //     "Hello World \n",
   //   ]
   // };
-  res.render('index', { title: 'My Node.js App' })
+  //res.render('index', { title: 'My Node.js App' })
   res.send('<h1>Hello, world! </br> Stunning Broccoli Node JS App For Production</br> /ping </br> /current-date </br> <p><a href="/about">About Us</a></p> </h1>');
 });
 
