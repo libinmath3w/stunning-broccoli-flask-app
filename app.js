@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 
 app.get('/', function (req, res) {
-   res.send('<h1>Hello, world! </br> <center>Stunning Broccoli Node JS App From Private Harbor </center> </h1>  </br>  </br> <p><a href="/about">About Us </a><a href="/ping"> | Ping</a><a href="/contact"> | Contact us</a></p>');
+   res.send('<h1>Hello, world! </br> <center>Stunning Broccoli Node JS App From Private Quay </center> </h1>  </br>  </br> <p><a href="/about">About Us </a><a href="/ping"> | Ping</a><a href="/contact"> | Contact us</a></p>');
 });
 
 app.get('/ping', function (req, res) {
